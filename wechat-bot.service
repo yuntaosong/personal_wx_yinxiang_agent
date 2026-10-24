@@ -1,0 +1,14 @@
+[Unit]
+Description=WeChat Bot FastAPI Service
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/wechat-bot
+ExecStart=/opt/wechat-bot/venv/bin/uvicorn app:app --host 0.0.0.0 --port 80
+Restart=always
+RestartSec=3
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
